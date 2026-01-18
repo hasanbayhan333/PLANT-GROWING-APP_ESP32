@@ -20,6 +20,9 @@ void WebServerManager::begin()
     _server.on("/wifi", HTTP_GET, [this](AsyncWebServerRequest *request)
                { handleWiFi(request); });
 
+    _server.on("/login", HTTP_GET, [this](AsyncWebServerRequest *request)
+               { handleLogin(request); });
+
     _server.on("/db.html", HTTP_GET, [this](AsyncWebServerRequest *request)
                { request->send(FILESYSTEM, "/db.html", "text/html"); });
 
@@ -127,6 +130,11 @@ void WebServerManager::handleBootstrap(AsyncWebServerRequest *request)
 void WebServerManager::handleWiFi(AsyncWebServerRequest *request)
 {
     request->send(FILESYSTEM, "/wifi.html", "text/html");
+}
+
+void WebServerManager::handleLogin(AsyncWebServerRequest *request)
+{
+    request->send(FILESYSTEM, "/login.html", "text/html");
 }
 
 void WebServerManager::handleStyle(AsyncWebServerRequest *request)

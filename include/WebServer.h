@@ -25,6 +25,7 @@ private:
     void handleScan(AsyncWebServerRequest *request);
     void handleNotFound(AsyncWebServerRequest *request);
     void handleBootstrap(AsyncWebServerRequest *request);
+    void handleLogin(AsyncWebServerRequest *request);
 };
 extern WebServerManager WebServer;
 
